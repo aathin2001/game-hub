@@ -82,6 +82,7 @@ header p {
 #intro h2 {
   color: #A4161A;
   font-weight: 300;
+  font-style: italic;
 }
 
 /* GAMES SECTION
@@ -114,6 +115,11 @@ header p {
 #games::-webkit-scrollbar-thumb:hover {
   background: #a4161b;
 }
+
+body::-webkit-scrollbar{
+  display: none;
+}
+
 
 /* GAME CARDS
    ------------------------------------------------------------ */

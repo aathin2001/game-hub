@@ -11,7 +11,7 @@ function App() {
     <>
       <div className="container">
         <button onClick={toggleSidebar} className={`sidebar-toggle ${isSidebarOpen ? 'on' : ''}`}>{isSidebarOpen ? '×': '☰'}</button>
-        <nav className={`navBar ${isSidebarOpen?'open': ''  }`}>
+        <nav onClick={toggleSidebar} className={`navBar ${isSidebarOpen?'open': ''  }`}>
             <div className="sidebar-content">
               <h2>How to Install</h2>
               <div className="installation-steps">
