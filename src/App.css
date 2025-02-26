@@ -257,6 +257,7 @@ footer a:hover {
 @media (min-width: 780px) {
   .container {
     flex-direction: row;
+    min-height: auto;
   }
   .navBar {
     flex: 0 0 380px; /* Keep sidebar fixed at 380px width */
