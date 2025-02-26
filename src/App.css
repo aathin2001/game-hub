@@ -1,31 +1,47 @@
-*{
+/* Global Reset & Box Sizing */
+* {
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
   border: 0px solid;
 }
 
-body{
-  overflow: hidden;
+/* BODY
+   ------------------------------------------------------------
+   1) Removed 'display: flex;' and 'height: 920px;' 
+      so body can auto-adjust height.
+*/
+body {
+  /* overflow: hidden; */
   background-color: #0B090A; /* Dark black background */
   color: #D3D3D3;
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
+  /* display: flex;   <-- REMOVED */
+  /* height: 920px;   <-- REMOVED */
 }
 
-.container{
-  /* background-color: rgba(0, 128, 0, 0.353); */
-  height: 920px;
+/* CONTAINER
+   ------------------------------------------------------------
+   2) Keep 'display: flex;' for horizontal layout (sidebar + main).
+   3) Use 'min-height: 100vh;' to fill full viewport height.
+   4) 'align-items: stretch;' ensures sidebar and main are same height.
+*/
+.container {
+  display: flex;
   width: 100%;
+  align-items: stretch;
+  min-height: 100vh; /* Ensures full screen height */
   /* overflow-x: hidden; */
-  
-  
 }
+
+/* HEADER
+   ------------------------------------------------------------ */
 header {
-  background-color: #161A1D; /* Slightly lighter black for header */
+  background-color: #161A1D;
   padding: 20px;
   text-align: center;
-  border-bottom: 2px solid #A4161A; /* Deep red accent */
+  border-bottom: 2px solid #A4161A;
 }
 
 .header-content {
@@ -39,88 +55,89 @@ header {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 2px solid #A4161A; /* Deep red accent */
+  border: 2px solid #A4161A;
 }
 
 header h1 {
   margin: 0;
   font-size: 2.5em;
-  color: #D3D3D3; /* Light gray text */
-  font-weight: 300; /* Lighter font weight for a softer look */
+  color: #D3D3D3;
+  font-weight: 300;
 }
 
 header p {
   margin: 5px 0 0;
   font-size: 1.2em;
-  color: #A4161A; /* Deep red for subtitle */
-  font-style: italic; /* Add a whimsical touch */
+  color: #A4161A;
+  font-style: italic;
 }
 
+/* INTRO
+   ------------------------------------------------------------ */
 #intro {
   text-align: center;
   margin-bottom: 30px;
 }
 
 #intro h2 {
-  color: #A4161A; /* Deep red for headings */
-  font-weight: 300; /* Lighter font weight */
+  color: #A4161A;
+  font-weight: 300;
 }
 
+/* GAMES SECTION
+   ------------------------------------------------------------
+   You have a fixed height (580px) here. If you want the footer
+   to always be at the bottom, consider removing or reducing
+   this fixed height.
+*/
 #games {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  
   height: 580px;
   overflow-y: scroll;
+  padding: 10px;
 }
 
-#games::-webkit-scrollbar{
+#games::-webkit-scrollbar {
   width: 8px;
 }
-
-#games::-webkit-scrollbar-track{
+#games::-webkit-scrollbar-track {
   background: #222;
 }
-
-#games::-webkit-scrollbar-thumb{
+#games::-webkit-scrollbar-thumb {
   background: #a4161b3f;
   border-radius: 10px;
-  transition: background  1s ease;
-
+  transition: background 1s ease;
 }
-#games::-webkit-scrollbar-thumb:hover{
+#games::-webkit-scrollbar-thumb:hover {
   background: #a4161b;
-  transition: background  1s ease;
 }
 
-/* Game Cards */
+/* GAME CARDS
+   ------------------------------------------------------------ */
 .game-card {
   position: relative;
-  background-color: #161A1D; /* Slightly lighter black for cards */
-  border-radius: 15px; /* More rounded corners for a softer look */
+  background-color: #161A1D;
+  border-radius: 15px;
   padding: 20px;
   width: 330px;
   height: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  overflow: hidden; 
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.game-card > h3{
+.game-card > h3 {
   color: #a4161b;
-  margin: 20px 2px 25px 5px ;
-  
+  margin: 20px 2px 25px 5px;
 }
-
 
 .game-card * {
   position: relative;
-  z-index: 3; /* Higher than the pseudo-elements */
+  z-index: 3;
 }
-
-
 
 .game-card::before {
   width: 200%;
@@ -131,154 +148,157 @@ header p {
     #a4161b 0deg,
     transparent 60deg,
     transparent 180deg,
-    #a4161b 180deg ,
+    #a4161b 180deg,
     transparent 240deg
   );
   inset: -50%;
-  z-index:  1;
-  animation: border-animation 4s linear infinite; 
+  z-index: 1;
+  animation: border-animation 4s linear infinite;
 }
 
-
 @keyframes border-animation {
-  to{
+  to {
     transform: rotate(-360deg);
   }
 }
 
-.game-card::after{
+.game-card::after {
   content: '';
   position: absolute;
-  top: 2px; /* Adjust to match the border width */
+  top: 2px;
   left: 2px;
-  width: calc(100% - 4px); /* Subtract twice the border width */
+  width: calc(100% - 4px);
   height: calc(100% - 4px);
-  background-color: #161A1D; /* Match the card background */
-  border-radius: 13px; /* Slightly smaller radius to fit inside the border */
-  z-index: 2; 
+  background-color: #161A1D;
+  border-radius: 13px;
+  z-index: 2;
 }
 
+/* FOOTER
+   ------------------------------------------------------------
+   5) Removed 'height: 100%;' 
+   6) Optionally add 'margin-top: auto;' if inside a column flex container.
+*/
 footer {
-  background-color: #161A1D; /* Slightly lighter black for footer */
+  background-color: #161A1D;
   padding: 10px;
   text-align: center;
-  margin-top: 30px;
   height: 100%;
-  border-top: 2px solid #A4161A; /* Deep red accent */
+  /* margin-top: 30px;  <-- If you want a gap above the footer, keep this */
+  /* height: 100%;      <-- REMOVED, prevents stretching the footer */
+  border-top: 2px solid #A4161A;
 }
 
+/* Footer text & links */
 footer p {
   margin: 5px 0;
-  color: #D3D3D3; /* Light gray text */
+  color: #D3D3D3;
 }
-
 footer a {
-  color: #A4161A; /* Deep red for links */
+  color: #A4161A;
   text-decoration: none;
   font-weight: bold;
 }
-
 footer a:hover {
-  color: #D3D3D3; /* Light gray on hover */
+  color: #D3D3D3;
   text-decoration: underline;
 }
 
-
-
-
-
-
-/* Download Buttons */
+/* DOWNLOAD BUTTON
+   ------------------------------------------------------------ */
 .download-btn {
   display: inline-block;
-  background-color: #A4161A; /* Deep red button */
-  color: #D3D3D3; /* Light gray text */
+  background-color: #A4161A;
+  color: #D3D3D3;
   padding: 10px 15px;
   text-decoration: none;
-  border-radius: 25px; /* Rounded button for a softer look */
+  border-radius: 25px;
   font-weight: bold;
   margin-top: 35px;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  
 }
 
 .download-btn:hover {
-  background-color: #D3D3D3; /* Light gray on hover */
-  color: #A4161A; /* Deep red text on hover */
-  transform: scale(1.05); /* Slightly enlarge button on hover */
+  background-color: #D3D3D3;
+  color: #A4161A;
+  transform: scale(1.05);
 }
 
-
-.navBar{
+/* SIDEBAR & MAIN
+   ------------------------------------------------------------ */
+.navBar {
   padding: 30px;
+
 }
 
-
-
-.maincontents{
-  height: 100%;
-  /* background-color: rgba(255, 166, 0, 0.419); */
-  flex: 3 1 75%;
+.navBar h2{
+  color: #a4161b;
+  margin: 25px 5px;
 }
 
-@media (min-width:780px){
-  .container{
-    display: flex;
+.navBar h3{
+  color: #5DE55D;
+  margin: 10px 5px;
+}
+
+/* 
+   7) Instead of 'height: 100%;' use flex: 1 and a column layout 
+      if you want the footer at the bottom. 
+*/
+.maincontents {
+  /* height: 100%; <-- REMOVED */
+  flex: 3 1 75%; 
+  display: flex;         /* ADDED: make it a flex container */
+  flex-direction: column;/* ADDED: stack content vertically */
+}
+
+/* DESKTOP MEDIA QUERY
+   ------------------------------------------------------------ */
+@media (min-width: 780px) {
+  .container {
     flex-direction: row;
   }
-  
-  .navBar{
-    height: 100%;
-    /* background-color: rgba(255, 255, 0, 0.414) ; */
-    flex: 1 0 380px;
-    border-right: #A4161A 2px solid;
-    background-color:#161A1D;
-    }
-    .sidebar-toggle{
-      display: none;
-    }
-  .maincontents{
-    height: 100%;
-    /* background-color: rgba(255, 166, 0, 0.419); */
+  .navBar {
+    flex: 0 0 380px; /* Keep sidebar fixed at 380px width */
+    border-right: 2px solid #A4161A;
+    background-color: #161A1D;
+    height: auto; 
+  }
+  .sidebar-toggle {
+    display: none;
+  }
+  .maincontents {
     flex: 3 1 75%;
   }
 }
 
-@media(max-width:780px){
-
-  .container{
+/* MOBILE MEDIA QUERY
+   ------------------------------------------------------------ */
+@media (max-width: 780px) {
+  .container {
     position: relative;
-  
   }
-
-  .maincontents{
-    height: 100%;
+  .maincontents {
     width: 100%;
-    /* position: absolute; */
   }
-  .navBar{
+  .navBar {
     height: 100%;
     width: 380px;
     top: 0;
-    left:-380px;
-    /* left: 0; */
+    left: -380px; /* Start off-screen */
     position: fixed;
     z-index: 100;
-    /* background-color: seagreen; */
     transition: all 1s ease;
-    border-right: #A4161A 2px solid;
+    border-right: 2px solid #A4161A;
     background-color: #161A1D;
   }
-  .navBar.open{
+  .navBar.open {
     left: 0;
-    background-color: #161A1D;
-    /* transform: rotate(90deg); */
-
   }
-  .sidebar-toggle{
+  .sidebar-toggle {
     position: fixed;
     display: none;
-    top:20px;
+    top: 20px;
     left: 20px;
     background-color: #A4161A;
     color: #D3D3D3;
@@ -294,48 +314,18 @@ footer a:hover {
     justify-content: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     z-index: 1001;
-    transition: background-color 0.3s ease , 
-    transform 1s ease;
+    transition: background-color 0.3s ease, transform 1s ease;
   }
-
 }
 
-.navBar h2{
-  color: #a4161b;
-  margin: 25px 5px;
-
-}
-
-.navBar h3{
-  color: #5DE55D;
-  margin: 10px 5px;
-}
-
-
-
-/* .sidebar-toggle::before{
-  content: '';
-  transition: opacity 0.3s ease,
-  transform  1s ease;
-  border: none;
-}
-
-.sidebar.open .sidebar-toggle::before{
-  content: '';
-  font-size: 1.8em;
-  
-} */
-
-.sidebar-toggle:hover{
+/* SIDEBAR TOGGLE HOVER & 'ON' STATE
+   ------------------------------------------------------------ */
+.sidebar-toggle:hover {
   background-color: #D3D3D3;
   color: #A4161A;
   transform: scale(1.1);
-
-
 }
-
-.sidebar-toggle.on{
-  right: 50px ;
+.sidebar-toggle.on {
+  right: 50px;
   transform: translateX(380px) rotate(90deg);
-  /* transform: ; */
 }

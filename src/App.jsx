@@ -35,7 +35,7 @@ function App() {
         <header>
           <div className="header-content">
             <img 
-              src="\src\assets\𝚜✩𝚕𝚊𝚛 𝚏𝚕𝚊𝚛3 ! !.jpeg" // Replace with your YouTube DP URL
+              src="\game-hub\src\assets\𝚜✩𝚕𝚊𝚛 𝚏𝚕𝚊𝚛3 ! !.jpeg" // Replace with your YouTube DP URL
               alt="Daisy Spark"
               className="profile-pic"
             />
@@ -48,7 +48,6 @@ function App() {
         <main>
           <section id="intro">
             <h2>Welcome to My Game Hub!</h2>
-            <p>Here, you can find the link for the coresponding game.</p>
           </section>
 
 
@@ -75,16 +74,6 @@ function App() {
             </div>
             <div className="game-card">
               <h3>Plants vs Zombies (Fusion)</h3>
-              <p><strong>Device:</strong> Android</p>
-              <p><strong>Version:</strong> v2.1.6</p>
-              <p><strong>Language:</strong> English</p>
-              <p><strong>Last Updated:</strong> December 11, 2024</p>
-              
-              <a target="_blank" href="https://drive.google.com/uc?export=download&id=11T9tImXLg3GjErow99RrF4oLSF21dO8O
-                " className="download-btn">Download</a>
-            </div>
-            <div className="game-card">
-              <h3>Plants vs Zombies (Fusion)</h3>
               <p><strong>Device:</strong> PC</p>
               <p><strong>Version:</strong> v2.2.1</p>
               <p><strong>Language:</strong> Multy language support </p>
@@ -93,6 +82,17 @@ function App() {
               <a target="_blank" href="https://drive.google.com/uc?export=download&id=12mswC_YY9GBREiqwmVl-TPGo5h1JPywN
                   " className="download-btn">Download</a>
             </div>
+            <div className="game-card">
+              <h3>Plants vs Zombies (Fusion)</h3>
+              <p><strong>Device:</strong> Android</p>
+              <p><strong>Version:</strong> v2.1.6</p>
+              <p><strong>Language:</strong> English</p>
+              <p><strong>Last Updated:</strong> December 11, 2024</p>
+              
+              <a target="_blank" href="https://drive.google.com/uc?export=download&id=11T9tImXLg3GjErow99RrF4oLSF21dO8O
+                " className="download-btn">Download</a>
+            </div>
+            
           </section>
         </main>  
         <footer>
