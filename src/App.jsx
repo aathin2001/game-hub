@@ -35,19 +35,19 @@ function App() {
         <header>
           <div className="header-content">
             <img 
-              src="\game-hub\src\assets\𝚜✩𝚕𝚊𝚛 𝚏𝚕𝚊𝚛3 ! !.jpeg" // Replace with your YouTube DP URL
+              src="https://i.pinimg.com/736x/91/e7/9c/91e79c47b7348c3ea40460bdd600fd28.jpg" // Replace with your YouTube DP URL
               alt="Daisy Spark"
               className="profile-pic"
             />
             <div>
               <h1>Daisy Spark's Game Hub</h1>
-              <p>Download the direct file here</p>
+             
             </div>
           </div>
         </header>
         <main>
           <section id="intro">
-            <h2>Welcome to My Game Hub!</h2>
+            <h2>Download the direct file here</h2>
           </section>
 
 

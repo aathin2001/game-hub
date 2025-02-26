@@ -31,7 +31,7 @@ body {
   display: flex;
   width: 100%;
   align-items: stretch;
-  min-height: 100vh; /* Ensures full screen height */
+  min-height: 880px; /* Ensures full screen height */
   /* overflow-x: hidden; */
 }
 
